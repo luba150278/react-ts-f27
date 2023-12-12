@@ -1,24 +1,14 @@
-import React, { useState } from 'react';
-import './App.css';
-import ChildComponent from './components/ChildComponent/ChildComponent';
+import React from 'react';
+import { withLayout } from './components/Layout/Layout';
 
 function App(): JSX.Element {
-  const [count, setCount] = useState<number>(0);
-  const changeFunc = (a: number): void => {
-    if (a < 10) {
-      setCount(count + 1)
-    } else {
-      setCount(count - 1)
-    }
-  }
   return (
-    <div className='App'>
-      <h1>Hello</h1>
-      <p>{ count}</p>
-      
-      <ChildComponent changeFunc={changeFunc} count={count} />
-    </div>
+    <section>
+      <div className='container'>
+        <h1>Home Page</h1>
+      </div>
+    </section>
   );
 }
 
-export default App;
+export default withLayout(App);
